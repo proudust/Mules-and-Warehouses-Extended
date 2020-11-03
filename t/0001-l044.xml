@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- English -->
+<language id="44">
+    <page id="222048" title="Mules, Supply and Warehouses Extended" descr="Interface texts for this mod" voice="no">
+        <t id="1000">M1- Travel Mule</t>
+        <t id="1010">Source Station</t>
+        <t id="1020">Max Jumps</t>
+        <t id="1030">Profit Override</t>
+        <t id="1040">Lock Wares to User Selection</t>
+        <t id="1050">Wares (all by default)</t>
+        <t id="1060">Fill Cargo Hold %</t>
+        <t id="1070">Target NPC Shipyards</t>
+        <t id="1080">Target All NPC Stations</t>
+        <t id="1090">Custom Stop List (Replaces 'Target' Options)</t>
+
+        <t id="2000">M2- Station Mule</t>
+        <t id="2010">Source Station</t>
+        <t id="2020">Target Station</t>
+        <t id="2030">Assign Ship To Station</t>
+        <t id="2040">Include Energy Cells</t>
+        <t id="2050">Include Food and Meds</t>
+        <t id="2060">Seller Priority</t>
+        <t id="2070">Never Illegal</t>
+        <t id="2080">Illegal Only</t>
+        <t id="2090">Two-way trade</t>
+        <t id="2100">Return Seller Priority</t>
+        <t id="2110">No in-system trade</t>
+        <t id="2120">Allow Low Volumes</t>
+        <t id="2130">Make Target Warehouse</t>
+
+        <t id="3000">M3- Distribute Mule</t>
+        <t id="3010">Source Warehouse</t>
+        <t id="3020">Min Storage</t>
+        <t id="3030">Static Storage</t>
+        <t id="3040">Max Storage</t>
+        <t id="3050">Wares (all by default)</t>
+        <t id="3060">Target Warehouses</t>
+
+        <t id="4000">M4- Supply Mule</t>
+        <t id="4010">Home Station/Sector</t>
+        <t id="4020">Assign Ship To Station</t>
+        <t id="4030">Max Jumps From Home</t>
+        <t id="4040">Serve Source Only</t>
+        <t id="4050">Allow Player Suppliers</t>
+        <t id="4060">Allow Ai Suppliers</t>
+        <t id="4070">Allow Buildstorage</t>
+        <t id="4080">Allow Resources</t>
+        <t id="4090">Allow Intermediates</t>
+        <t id="4100">Allow Tradewares</t>
+        <t id="4110">Lock Wares to User Selection</t>
+        <t id="4120">Wares (all by default)</t>
+        <t id="4130">Max Trades</t>
+        <t id="4140">Player Buy Mod</t>
+    </page>
+</language>

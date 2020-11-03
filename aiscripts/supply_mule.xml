@@ -1,68 +1,68 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <aiscript name="supplymule" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://x4libonline.ddns.net\libraries\aiscripts.xsd" version="2">
 	<!-- Setup context menu order-->
-	<order id="SupplyMule" name="M4- Supply Mule" description="Supplys own Stations Needs" category="trade" infinite="true">
+	<order id="SupplyMule" name="{222048,4000}" description="Supplys own Stations Needs" category="trade" infinite="true">
 		<params>
 			<!-- menu option: Home (Define Home)-->
-			<param name="home" type="object" default="this.ship.sector" text="Home Station/Sector" comment="Home">
+			<param name="home" type="object" default="this.ship.sector" text="{222048,4010}" comment="Home">
 				<input_param name="class" value="[class.ship, class.station, class.sector]" />
-				<patch sinceversion="2" value="if $sourceStation then $sourceStation else this.ship.sector"/>
+				<patch sinceversion="2" value="if $sourceStation then $sourceStation else this.ship.sector" />
 			</param>
 			<!-- menu option: Assign Ship to Station (Are we assigning this ship to a station if player owned.)-->
-			<param name="assignHome" type="bool" default="false" text="Assign Ship To Station" comment="Assign to the home station if it's the players.">
-				<patch sinceversion="2" value="$assignSrc"/>
+			<param name="assignHome" type="bool" default="false" text="{222048,4020}" comment="Assign to the home station if it's the players.">
+				<patch sinceversion="2" value="$assignSrc" />
 			</param>
 			<!-- menu option: Max Distance (Maximum Jumpes to buy/sell, in case of ai service only buy)-->
-			<param name="maxDist" required="false" default="this.ship.pilot.skill.piloting * 2" type="number" text="Max Jumps From Home" comment="Max gate distance to buy.">
+			<param name="maxDist" required="false" default="this.ship.pilot.skill.piloting * 2" type="number" text="{222048,4030}" comment="Max gate distance to buy.">
 				<input_param name="startvalue" value="this.ship.pilot.skill.piloting * 2" />
 				<input_param name="min" value="0" />
 				<input_param name="max" value="this.ship.pilot.skill.piloting * 2" />
 				<input_param name="step" value="1" />
 			</param>
 			<!-- menu option: Serve Source Only (will only serve the source station if used)-->
-			<param name="dedicatedServe" type="bool" default="false" text="Serve Source Only" comment="Will only serve the configured source station" />
+			<param name="dedicatedServe" type="bool" default="false" text="{222048,4040}" comment="Will only serve the configured source station" />
 			<!-- menu option: include player and/or ai stations as sources for supplies -->
-			<param name="allowPlayerSuppliers" type="bool" default="true" text="Allow Player Suppliers" comment="Allow buys from player stations">
-				<patch sinceversion="2" value="true"/>
+			<param name="allowPlayerSuppliers" type="bool" default="true" text="{222048,4050}" comment="Allow buys from player stations">
+				<patch sinceversion="2" value="true" />
 			</param>
-			<param name="allowAiSuppliers"     type="bool" default="true" text="Allow Ai Suppliers"     comment="Allow buys from ai stations">
-				<patch sinceversion="2" value="not $tradeWithOwn"/>
+			<param name="allowAiSuppliers" type="bool" default="true" text="{222048,4060}" comment="Allow buys from ai stations">
+				<patch sinceversion="2" value="not $tradeWithOwn" />
 			</param>
 
 			<!-- menu option: include buildstorage, resources, intermediates, and tradewares as possible options to supply -->
-			<param name="allowBuildstorage"  type="bool" default="true" text="Allow Buildstorage"  comment="Allow buys for buildstorage">
-				<patch sinceversion="2" value="not $producer"/>
+			<param name="allowBuildstorage" type="bool" default="true" text="{222048,4070}" comment="Allow buys for buildstorage">
+				<patch sinceversion="2" value="not $producer" />
 			</param>
-			<param name="allowResources"     type="bool" default="true" text="Allow Resources"     comment="Allow buys for resources">
-				<patch sinceversion="2" value="not $builder"/>
+			<param name="allowResources" type="bool" default="true" text="{222048,4080}" comment="Allow buys for resources">
+				<patch sinceversion="2" value="not $builder" />
 			</param>
-			<param name="allowIntermediates" type="bool" default="true" text="Allow Intermediates" comment="Allow buys for intermediates">
-				<patch sinceversion="2" value="not $builder"/>
+			<param name="allowIntermediates" type="bool" default="true" text="{222048,4090}" comment="Allow buys for intermediates">
+				<patch sinceversion="2" value="not $builder" />
 			</param>
-			<param name="allowTradewares"    type="bool" default="true" text="Allow Tradewares"    comment="Allow buys for tradewares">
-				<patch sinceversion="2" value="not $builder"/>
+			<param name="allowTradewares" type="bool" default="true" text="{222048,4100}" comment="Allow buys for tradewares">
+				<patch sinceversion="2" value="not $builder" />
 			</param>
 
 			<!-- lock wares to player selection -->
-			<param name="lockWares"            type="bool" default="false" text="Lock Wares to User Selection" comment="Locks the Users ware selection, otherwise we need to wipe it each time we call the script" />
+			<param name="lockWares" type="bool" default="false" text="{222048,4110}" comment="Locks the Users ware selection, otherwise we need to wipe it each time we call the script" />
 
 			<!-- menu option: WareBasket List-->
-			<param name="specialWareBasket"    type="list" default="[]"    text="Wares (all by default)"       comment="Warebasket">
-				<input_param name="type"     value="'ware'" />
+			<param name="specialWareBasket" type="list" default="[]" text="{222048,4120}" comment="Warebasket">
+				<input_param name="type" value="'ware'" />
 				<input_param name="cancarry" value="this.ship" />
 			</param>
 
 			<!-- menu option: Max Trades (Maximum trades per buy run)-->
-			<param name="maxTrades" required="false" default="5" type="number" text="Max Trades" comment="Max Trades per buy run.">
+			<param name="maxTrades" required="false" default="5" type="number" text="{222048,4130}" comment="Max Trades per buy run.">
 				<input_param name="startvalue" value="5" />
 				<input_param name="min" value="1" />
 				<input_param name="max" value="10" />
 				<input_param name="step" value="1" />
-				<patch sinceversion="2" value="$maxtrades"/>
+				<patch sinceversion="2" value="$maxtrades" />
 			</param>
 
 			<!-- menu option: Profit Override Percentage (Used when buying/selling at own warehouses mostly) -->
-			<param name="playerBuyMod" default="100" type="number" text="Player Buy Mod" comment="Owned Station Buy price adjustment, 0=ignore manager price 100= Obey Station Manager's buy offer.">
+			<param name="playerBuyMod" default="100" type="number" text="{222048,4140}" comment="Owned Station Buy price adjustment, 0=ignore manager price 100= Obey Station Manager's buy offer.">
 				<input_param name="startvalue" value="100" />
 				<input_param name="min" value="0" />
 				<input_param name="max" value="100" />
@@ -70,14 +70,14 @@
 			</param>
 
 			<!-- Internal parameter used to restart the script on version update if required -->
-			<param name="restartScript" type="internal" default="false"/>
+			<param name="restartScript" type="internal" default="false" />
 			<!-- Old deprecated parameters, see patch version 2 below -->
-			<param name="tradeWithOwn"  type="internal" default="null" text="Player Suppliers Only" comment="Buys from player stations only" />
-			<param name="builder"       type="internal" default="null" text="Build Storage ONLY"    comment="Will wait for build storage needs instead of finding something to do" />
-			<param name="producer"      type="internal" default="null" text="Factory Supply ONLY"   comment="Will look to supply only factories with products" />
-			<param name="sourceStation" type="internal" default="null" text="Home Station/Sector"   comment="The source station"/>
-			<param name="assignSrc"     type="internal" default="false" text="Assign Ship To Station" comment="Assign to the home station if it's the players." />
-			<param name="maxtrades"     type="internal" required="false" default="5" text="Max Trades" comment="Max Trades per buy run."/>
+			<param name="tradeWithOwn" type="internal" default="null" text="Player Suppliers Only" comment="Buys from player stations only" />
+			<param name="builder" type="internal" default="null" text="Build Storage ONLY" comment="Will wait for build storage needs instead of finding something to do" />
+			<param name="producer" type="internal" default="null" text="Factory Supply ONLY" comment="Will look to supply only factories with products" />
+			<param name="sourceStation" type="internal" default="null" text="Home Station/Sector" comment="The source station" />
+			<param name="assignSrc" type="internal" default="false" text="Assign Ship To Station" comment="Assign to the home station if it's the players." />
+			<param name="maxtrades" type="internal" required="false" default="5" text="Max Trades" comment="Max Trades per buy run." />
 		</params>
 		<requires>
 			<match shiptype="shiptype.lasertower" negate="true" />
